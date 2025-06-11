@@ -1,0 +1,34 @@
+import math 
+def main():
+    flag=0
+    slashindex=0
+    while True:
+        try :
+            x = input("Enter Fraction amount: ")
+            for i in range(len(x)):
+            
+                if(x[i]== '/'):
+                    flag=flag+1
+                    slashindex=i
+        
+            a=float(x[:i-1])
+        
+            b=float(x[i:])
+            if(a>b):
+                continue
+            elif(a/b<=0.01):
+                print("E")
+                break
+            elif(a/b>=0.999):
+                print("F")
+                break
+            else:
+                print((round(a/b,4))*100,"%")
+                break
+        except ValueError:
+            print("Enter numbers in the format x/y , For example 1/2")
+            
+        except ZeroDivisionError:
+            print("Dont divide by zero")
+    
+main()
